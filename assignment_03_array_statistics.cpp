@@ -42,3 +42,81 @@
 #include <iostream>
 using namespace std;
 
+
+
+
+#include <iostream>
+using namespace std;
+
+// Function prototypes
+int calculateSum(int arr[], int n);
+double calculateAverage(int arr[], int n);
+int findMaximum(int arr[], int n);
+int findMinimum(int arr[], int n);
+
+int main() {
+    int n;
+    
+    cout << "How many numbers? ";
+    cin >> n;
+    
+    // Check if n is valid
+    if (n <= 0) {
+        cout << "Error: Number of elements must be positive." << endl;
+        return 1;
+    }
+    
+    int arr[n]; // array to store numbers
+    
+    // Get numbers from user
+    for (int i = 0; i < n; i++) {
+        cout << "Enter number " << i + 1 << ": ";
+        cin >> arr[i];
+    }
+    
+    // Call functions and display results
+    cout << "\nResults:" << endl;
+    cout << "Sum: " << calculateSum(arr, n) << endl;
+    cout << "Average: " << calculateAverage(arr, n) << endl;
+    cout << "Maximum: " << findMaximum(arr, n) << endl;
+    cout << "Minimum: " << findMinimum(arr, n) << endl;
+    
+    return 0;
+}
+
+// Function to calculate sum
+int calculateSum(int arr[], int n) {
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+// Function to calculate average
+double calculateAverage(int arr[], int n) {
+    int sum = calculateSum(arr, n);
+    return static_cast<double>(sum) / n;
+}
+
+// Function to find maximum
+int findMaximum(int arr[], int n) {
+    int max = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+// Function to find minimum
+int findMinimum(int arr[], int n) {
+    int min = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+    return min;
+}
