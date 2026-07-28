@@ -57,3 +57,62 @@
 #include <iostream>
 using namespace std;
 
+
+
+
+// Function for Part A: Print single multiplication table
+void printSingleTable(int num) {
+    cout << "Multiplication Table for " << num << ":" << endl;
+    for (int i = 1; i <= 12; i++) {
+        cout << num << " x " << i << " = " << num * i << endl;
+    }
+}
+
+// Function for Part B Bonus: Print tables from 1 to N
+void printTablesToN(int n) {
+    for (int num = 1; num <= n; num++) {
+        printSingleTable(num);  // reuse the function above
+        cout << "----" << endl; // separator line
+    }
+}
+
+int main() {
+    int choice;
+    cout << "--- MULTIPLICATION TABLE GENERATOR ---" << endl;
+    cout << "1. Print Single Table" << endl;
+    cout << "2. Print Tables from 1 to N" << endl;
+    cout << "Enter your choice: ";
+    cin >> choice;
+
+    if (choice == 1) {
+        // PART A
+        int num;
+        cout << "Enter a number: ";
+        cin >> num;
+
+        if (num <= 0) {
+            cout << "Error: Please enter a positive integer." << endl;
+            return 1;
+        }
+
+        printSingleTable(num);
+
+    } else if (choice == 2) {
+        // PART B BONUS
+        int n;
+        cout << "Enter N: ";
+        cin >> n;
+
+        if (n <= 0) {
+            cout << "Error: Please enter a positive integer." << endl;
+            return 1;
+        }
+
+        printTablesToN(n);
+
+    } else {
+        cout << "Error: Invalid choice." << endl;
+    }
+
+    return 0;
+}
