@@ -1,3 +1,10 @@
+// Name: GIFTY AFUA AHEMAH NTOW
+// Student ID: 22461638
+// Assignment 5: Fibonacci Sequence
+
+
+
+
 // =============================================================================
 // PROGRAMMING FUNDAMENTALS — Assignment 5
 // =============================================================================
