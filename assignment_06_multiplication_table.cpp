@@ -1,3 +1,9 @@
+// Name:GIFTY AFUA AHEMAH NTOW
+// Student ID:22461638
+//Assignment 6: Multiplication Table Generator
+
+
+
 // =============================================================================
 // PROGRAMMING FUNDAMENTALS — Assignment 6
 // =============================================================================
