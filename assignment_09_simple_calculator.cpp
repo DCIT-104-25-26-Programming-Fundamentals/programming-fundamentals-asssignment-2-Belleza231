@@ -68,8 +68,100 @@
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
 
+
 #include <iostream>
 #include <iomanip>
 #include <cmath>
 using namespace std;
 
+// Function prototypes - Each operation MUST be its own function
+double add(double a, double b);
+double subtract(double a, double b);
+double multiply(double a, double b);
+double divide(double a, double b);
+int modulo(int a, int b);
+double power(double a, double b);
+void showMenu();
+
+int main() {
+    int choice;
+    double num1, num2;
+
+    // Loop so calculator keeps running until user selects Quit
+    do {
+        showMenu();
+        cout << "Select an operation (1-7): ";
+        cin >> choice;
+
+        if (choice == 7) {
+            cout << "Goodbye!" << endl; // From pic 2 line 53
+            break;
+        }
+
+        // Handle invalid menu choices gracefully
+        if (choice < 1 || choice > 7) {
+            cout << "Invalid choice! Please enter 1-7." << endl;
+            continue;
+        }
+
+        cout << "Enter first number: ";
+        cin >> num1;
+        cout << "Enter second number: ";
+        cin >> num2;
+
+        // Use fixed and setprecision(2) to display results to 2 decimal places
+        cout << fixed << setprecision(2);
+
+        switch (choice) {
+            case 1:
+                cout << "Result: " << num1 << " + " << num2 << " = " << add(num1, num2) << endl;
+                break;
+            case 2:
+                cout << "Result: " << num1 << " - " << num2 << " = " << subtract(num1, num2) << endl;
+                break;
+            case 3:
+                cout << "Result: " << num1 << " * " << num2 << " = " << multiply(num1, num2) << endl;
+                break;
+            case 4:
+                // Division by zero must be caught and handled
+                if (num2 == 0) {
+                    cout << "Error: Cannot divide by zero." << endl; // From pic 2 line 50
+                } else {
+                    cout << "Result: " << num1 << " / " << num2 << " = " << divide(num1, num2) << endl;
+                }
+                break;
+            case 5:
+                cout << "Result: " << (int)num1 << " % " << (int)num2 << " = " << modulo((int)num1, (int)num2) << " (remainder)" << endl;
+                break;
+            case 6:
+                // For exponentiation use pow() function from <cmath>
+                cout << "Result: " << num1 << " ^ " << num2 << " = " << power(num1, num2) << endl;
+                break;
+        }
+        cout << endl;
+    } while (choice != 7);
+
+    return 0;
+}
+
+// Show menu - matches pic 1 lines 26-35
+void showMenu() {
+    cout << "\n===================" << endl;
+    cout << "   SIMPLE CALCULATOR" << endl;
+    cout << "===================" << endl;
+    cout << "1. Addition" << endl;
+    cout << "2. Subtraction" << endl;
+    cout << "3. Multiplication" << endl;
+    cout << "4. Division" << endl;
+    cout << "5. Modulo" << endl;
+    cout << "6. Exponentiation" << endl;
+    cout << "7. Quit" << endl;
+}
+
+// Each arithmetic operation as its own function
+double add(double a, double b) { return a + b; }
+double subtract(double a, double b) { return a - b; }
+double multiply(double a, double b) { return a * b; }
+double divide(double a, double b) { return a / b; }
+int modulo(int a, int b) { return a % b; }
+double power(double a, double b) { return pow(a, b); } // uses <cmath>
